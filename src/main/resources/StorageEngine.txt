@@ -1,0 +1,38 @@
+multiple engine can co-exist.
+
+## MMap engine
+it just support collection level lock
+
+MMAPv1：适应于所有MongoDB版本，MongoDB3.0的默认引擎
+
+MongoDB为了保证连续的存储空间，避免磁盘碎片问题会预分配空间。
+
+工作方式是这样的：在创建数据库时，系统会创建一个名为[dbName].0的文件，该文件固定大小为64M，
+当该文件有一半以上被使用时，系统会再创建一个名为[dbName].1的文件，该文件大小是方才的两倍。
+以此类推，接下来创建的[db Name].n都是[dbName].n-1的两倍，最大直到2048M，此后，再次创建的文件大小都为2048M
+。因此如果数据足够多，64M, 128M, 256M, 1024M, 2048M, 2048M…大小的文件会被创建
+
+
+mongo doesn't release space after record deleted. just reuse them if new data.
+repair for whole db, compact for collection.
+
+
+
+## wired tiger  WiredTiger：仅支持64位MongoDB
+it supports document level lock.
+it supports compression for collection and index.
+
+支持行存储、列存储以及LSM等3种存储形式
+
+by default, wired tiger store compressed index in RAM.
+
+## encrypted storage engine
+without performance but file system encryption for sensitive data
+
+## in memory storage
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+## link for arch doc
+http://s3.amazonaws.com/info-mongodb-com/MongoDB_Architecture_Guide.pdf
+
+
+1. expressive query
+2. flexible data model
+3. strong consistency
+4. scalability
+5. performance
+6. second index. lots of index type for usage.
+   ttl index, geo spatial index, partial index.
+   compound index, sparse index, text search index.
+
+## four storage engine
+wired tiger,  MMap1 , in memory and encryption
+
+## data model
+json / bson.
+collection alias to table
+document to record. and each field to column.
+
+
+
+## map reduce query
+do complex query in java script.
+
+
+## mongo provide auto-sharding.
+sharding is default.
+range sharding, hash sharding, location sharding.
+
+query router to send query to right node.
+
+
+## consistency
+writer client can specify the write concern to catch exception.
+
+mongo strong consistency, all write and read will be default routed to primary.
+
+## replication
+oplog used to keep primary and secondary have the same data.
+
+client can choose secondary node to read data if correctness not critical.
+
+
+
+
